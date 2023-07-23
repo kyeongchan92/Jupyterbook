@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to your Jupyter Book &#8212; 리갱의 추천시스템 공부</title>
+    <title>Maximum Likelihood Estimation 정리 &#8212; 리갱의 추천시스템 공부</title>
   
   
   
@@ -61,10 +61,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Maximum Likelihood Estimation 정리';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="기본은 쉬운 것이 아니라 중요한 것이다." href="scratch.html" />
+    <link rel="prev" title="Matrix Factorization" href="Matrix%20Factorization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -130,7 +132,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -149,21 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Welcome to your Jupyter Book
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">AI basics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scratch.html">기본은 쉬운 것이 아니라 중요한 것이다.</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mymarkdownfile.html">Here’s my sample title</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%EC%B6%94%EC%B2%9C%EC%97%90%EC%84%9C%EC%9D%98%20Recall%28%3DHit%20Ratio%29.html">추천에서의 Recall (=Hit Ratio)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accuracy%2C%20Precision%2C%20Recall%2C%20F1-score%20%EB%B3%B5%EC%8A%B5.html">Accuracy, Precision, Recall, F1-score 복습</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Implicit%20data%EC%97%90%EC%84%9C%EC%9D%98%20nDCG.html">Implicit data에서의 nDCG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Matrix%20Factorization.html">Matrix Factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Maximum%20Likelihood%20Estimation%20%EC%A0%95%EB%A6%AC.html">Maximum Likelihood Estimation 정리</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Maximum Likelihood Estimation 정리</a></li>
 </ul>
 
     </div>
@@ -235,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/kyeongchan92/Jupyterbook/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/kyeongchan92/Jupyterbook/issues/new?title=Issue%20on%20page%20%2FMaximum Likelihood Estimation 정리.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +269,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/Maximum Likelihood Estimation 정리.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -275,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -334,7 +338,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -345,11 +351,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>Maximum Likelihood Estimation 정리</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">확률.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likelihood">그럼 Likelihood는 무엇일까?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">likelihood</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -359,25 +377,59 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Permalink to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">AI basics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="scratch.html">기본은 쉬운 것이 아니라 중요한 것이다.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%EC%B6%94%EC%B2%9C%EC%97%90%EC%84%9C%EC%9D%98%20Recall%28%3DHit%20Ratio%29.html">추천에서의 Recall (=Hit Ratio)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Accuracy%2C%20Precision%2C%20Recall%2C%20F1-score%20%EB%B3%B5%EC%8A%B5.html">Accuracy, Precision, Recall, F1-score 복습</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Accuracy%2C%20Precision%2C%20Recall%2C%20F1-score%20%EB%B3%B5%EC%8A%B5.html#f1-score">F1-Score</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Implicit%20data%EC%97%90%EC%84%9C%EC%9D%98%20nDCG.html">Implicit data에서의 nDCG</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Matrix%20Factorization.html">Matrix Factorization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Maximum%20Likelihood%20Estimation%20%EC%A0%95%EB%A6%AC.html">Maximum Likelihood Estimation 정리</a></li>
-</ul>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="maximum-likelihood-estimation">
+<h1>Maximum Likelihood Estimation 정리<a class="headerlink" href="#maximum-likelihood-estimation" title="Permalink to this heading">#</a></h1>
+<p>유튜버 AI Holic님의 ‘<a class="reference external" href="https://www.youtube.com/watch?v=mxCmB1WE3R8">Likelihood 쉽게 설명드려요 — 머신러닝, 인공지능을 위한 수학</a>’ 영상을 보고 정리한 내용입니다.</p>
+<section id="id1">
+<h2>확률.<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>우도에 대해 알아보기 전에, 일단 가장 친숙한 <strong>“확률”</strong> 이라는 것부터 살펴보자. 고양이들 1,000마리의 몸무게를 재서 다음과 같은 히스토그램 분포가 나왔다고 해보자. 평균은 4, 표준편차는 0.5라고 해보자.</p>
+<p><img alt="" src="_images/1000cats.png" /></p>
+<p>**“확률”**이란, 다음처럼 우리가 고등학교 때 많이 구하던 바로 그것이다!</p>
+<p><img alt="" src="_images/ge5-l5.png" /></p>
+<p>평균은 얼마고, 표준편차는 얼마일 때, 몸무게가 4보다 크거나 같고 5보다 작거나 같을 확률은 얼마인가?</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(4 \le \text{몸무게} \le 5|\mathcal{N}(4, 0.5)) =0.477\]</div>
+<p>평균은 얼마고, 표준편차는 얼마일 때, 몸무게가 3.5보다 크거나 같고 4보다 작거나 같을 확률은 얼마인가?</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(3.5 \le \text{몸무게} \le 4|\mathcal{N}(4, 0.5)) =0.34\]</div>
+<p><img alt="" src="_images/mycatsweight.png" /></p>
+<p>**“확률”**이란…</p>
+<p>사건의 범위는 변하지만, 분포는 고정되어 있는 형태다. 내가 한 마리의 고양이를 키우고 있다고 가정해보자. 위의 분포에서는, 즉, 내가 관측한 고양이들의 몸무게들 중에서는, 내 고양이의 몸무게가 4kg에서 5kg사이일 확률은 47.7%이고, 3.5kg에서 4kg 사이일 확률은 34%이다.</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(\text{data} | \text{distribution})\]</div>
+<p>보통 “<strong>확률</strong>”이란, 위와 같은 형태이다. distribution이 정해져 있는 상태에서, 지금 이 데이터가 관측 될 확률이다.</p>
+</section>
+<section id="likelihood">
+<h2>그럼 Likelihood는 무엇일까?<a class="headerlink" href="#likelihood" title="Permalink to this heading">#</a></h2>
+<p>아래 그림을 보자.</p>
+<p><img alt="" src="_images/likelihood.png" /></p>
+<p>우리집 고양이가 5kg이라고 해보자. (뚱냥이다!)</p>
+<p>우리집 뚱냥이의 몸무게라는 데이터(5kg)를 내가 관측했다. <strong>그럼 이 데이터는 어떤 분포로부터 나왔다고 하는 게 가장 말이 될까?</strong></p>
+<p>만약 고양이 몸무게의 진짜, 리얼, 진리적인 분포, 즉, 이 세상 모든 고양이의 몸무게를 쟀더니 그 분포가 위 그림처럼 평균 4, 분산 0.5인 정규분포라고 가정해보자. 그럼 이 가정 하에서 우리집 뚱냥이의 likelihood는? 0.108이다.</p>
+<p>x=5인 경우의 확률분포의 y절편에 해당한다. 즉, 세로 선의 길이이다.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}(\mathcal{N}(4, 0.5) | \text{고양이몸무게}=5)=0.108\]</div>
+<p>“고양이 몸무게가 5kg이라고 주어졌을 때, 정규분포 (4, 0.5)의 likelihood는 0.108이다”라고 해석한다.</p>
+<p>다시다시, 분포를 오른쪽으로 조금 움직여봅시다!</p>
+<p><img alt="" src="_images/mycat-5.png" /></p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}(\mathcal{N}(5, 0.5) | \text{고양이몸무게}=5)=0.798\]</div>
+<p>내 고양이 몸무게가 5kg일 때, 이 데이터가 정규분포(5, 0.5)라는 분포의 likelihood는 0.798이다.</p>
+<p>likelihood가 가장 높은 분포를 선택하는 것이 가장 말이 된다는 것은 이해가 간다. 아니 근데, 관측한 데이터로 분포를 때려 맞춘다고 했는데, 그 분포(분포란 평균과 표준편차를 의미함)의 likelihood 계산은 어떻게 하는가?</p>
+<p><img alt="" src="_images/likelihood-cal.png" /></p>
+<section id="id2">
+<h3>likelihood<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>=지금 얻은 데이터(내 뚱냥이 몸무게 = 5kg)가 이 분포로부터 나왔을 가능도</p>
+<p>=각 데이터 샘플에서 후보 분포에 대한 높이(likelihood, 기여도)의 곱(iid)</p>
+<p>다시다시, 내가 여러 마리의 고양이 몸무게를 측정했다(나는 현재 x들을 알고있다).</p>
+<p>그렇다면, 이 몸무게들의 원래 분포는 무엇일까? → <span class="math notranslate nohighlight">\(\theta\)</span>는 무엇일까? → 이 글의 경우에는 정규분포라고 가정했으므로 <span class="math notranslate nohighlight">\(\theta\)</span>가 무엇일까?는 곧 평균과 분산이 무엇일까?가 된다.</p>
+<p>이 과정이 바로 최대 우도 추정이다. <span class="math notranslate nohighlight">\(\mathbb{P}(x|\theta)\)</span>가 가장 커지는 <span class="math notranslate nohighlight">\(\theta\)</span>를 추정하는 것이 가장 그럴 듯하다. 즉, 최대 우도 추정이란, <span class="math notranslate nohighlight">\(\mathbb{P}(x|\theta)\)</span>가 가장 커지는 <span class="math notranslate nohighlight">\(\theta\)</span>(여기서는 평균과 표준편차)를 구하는 것이고, 모든 데이터를 이 분포에 빗대어 likelihood를 구해 모두 곱하고, 이 값이 가장 커지는 <span class="math notranslate nohighlight">\(\theta\)</span>를 구하는 과정이다.</p>
+<p>똑똑한 누군가는 말한다.</p>
+<p>“이 <span class="math notranslate nohighlight">\(\theta\)</span>일 때, 즉 이 분포일 때, 내가 측정한 고양이들의 몸무게 x들이 가장 나옴직해!”</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}(\mathcal{N}(4, 0.5) | \text{고양이몸무게})\]</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -389,16 +441,16 @@ It does not go in-depth into any particular topic - check out <a class="referenc
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "jupyterbook"
         },
         kernelOptions: {
-            name: "python3",
+            name: "jupyterbook",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'jupyterbook'</script>
 
                 </article>
               
@@ -411,14 +463,14 @@ It does not go in-depth into any particular topic - check out <a class="referenc
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
-       href="scratch.html"
-       title="next page">
+    <a class="left-prev"
+       href="Matrix%20Factorization.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">기본은 쉬운 것이 아니라 중요한 것이다.</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Matrix Factorization</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -429,6 +481,24 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">확률.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likelihood">그럼 Likelihood는 무엇일까?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">likelihood</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

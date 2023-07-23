@@ -3,7 +3,7 @@
 
 title: 리갱의 추천시스템 공부
 author: Kyeongchan Lee
-logo: images/logo-color-cut.png
+logo: images/logo-no-background.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
