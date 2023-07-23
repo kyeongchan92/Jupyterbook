@@ -7,8 +7,12 @@ parts:
   - caption : AI basics
     chapters:
       - file: scratch.md
-      - file: 추천에서의 Recall(=Hit Ratio).ipynb
-      - file: Accuracy, Precision, Recall, F1-score 복습.ipynb
-      - file: Implicit data에서의 nDCG.ipynb
-      - file: Matrix Factorization.ipynb
-      - file: Maximum Likelihood Estimation 정리.ipynb
+        sections:
+        - file: 추천에서의 Recall(=Hit Ratio).ipynb
+        - file: Accuracy, Precision, Recall, F1-score 복습.ipynb
+        - file: Implicit data에서의 nDCG.ipynb
+        - file: Matrix Factorization.ipynb
+        - file: Maximum Likelihood Estimation 정리.ipynb
+        - url:https://github.com/kyeongchan92/Jupyterbook/blob/main/mynewbook/SASRec%annotation.pdf
+            title: SASRec
+  - caption : Paper Review
