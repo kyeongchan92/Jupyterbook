@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption : AI Basics
+    chapters:
+      - file: scratch.md
+        sections:
+        - file: 추천에서의 Recall(=Hit Ratio).ipynb
+        - file: Accuracy, Precision, Recall, F1-score 복습.ipynb
+        - file: Implicit data에서의 nDCG.ipynb
+        - file: Matrix Factorization.ipynb
+        - file: Maximum Likelihood Estimation 정리.ipynb
+
+  - caption : Paper Reviews
+    chapters:
+      - file: paper-review-recsys-model.md
+        sections:
+        - url : https://drive.google.com/file/d/14F09qyQmYFglb53UD18x57_nz14x9-jj/view?usp=drive_link
+          title: SASRec
